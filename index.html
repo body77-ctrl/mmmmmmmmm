@@ -10,14 +10,16 @@
 body{
 margin:0;
 font-family:Arial;
-height:100vh;
-overflow:hidden;
+min-height:100vh;
+overflow-x:hidden;
+overflow-y:auto;
 background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fad0c4);
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
 color:white;
+padding:20px 10px;
 }
 
 button{
@@ -49,9 +51,10 @@ display:none;
 }
 
 img{
-width:300px;
+width:90%;
+max-width:280px;
 border-radius:20px;
-margin-top:20px;
+margin-top:15px;
 opacity:0;
 transform:scale(0.6);
 transition:1s;
@@ -59,13 +62,13 @@ box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 #timer{
-font-size:22px;
+font-size:20px;
 margin-top:15px;
 }
 
 #message{
-font-size:30px;
-margin-top:30px;
+font-size:26px;
+margin-top:20px;
 font-weight:bold;
 min-height:40px;
 }
@@ -137,9 +140,9 @@ let yes=document.getElementById("yes");
 let no=document.getElementById("no");
 let yesSize=1;
 
-/* NO = يكبر YES بس */
+/* NO = يكبر YES */
 no.onclick=function(){
-yesSize += 0.2;
+yesSize += 0.15;
 yes.style.transform = "scale(" + yesSize + ")";
 };
 
@@ -152,7 +155,7 @@ document.getElementById("main").style.display="block";
 let music=document.getElementById("music");
 music.play();
 
-/* لما الأغنية تخلص */
+/* نهاية مع الأغنية */
 music.onended=function(){
 document.getElementById("final").style.display="flex";
 };
@@ -166,7 +169,7 @@ heartExplosion();
 };
 
 
-/* Timer */
+/* العداد */
 function startTimer(){
 
 let startDate=new Date("2026-2-24");
@@ -184,7 +187,7 @@ let seconds=Math.floor((diff/1000)%60);
 document.getElementById("timer").innerHTML=
 days+" days "+hours+" hours "+minutes+" seconds "+seconds;
 
-},1000)
+},1000);
 
 }
 
@@ -195,7 +198,7 @@ setTimeout(()=>{
 let img=document.getElementById("photo");
 img.style.opacity="1";
 img.style.transform="scale(1)";
-},1000)
+},1000);
 }
 
 
@@ -214,7 +217,7 @@ i++;
 clearInterval(interval);
 }
 
-},80)
+},80);
 
 }
 
@@ -228,7 +231,7 @@ heart.innerHTML="❤️";
 heart.style.left=Math.random()*100+"vw";
 document.body.appendChild(heart);
 setTimeout(()=>heart.remove(),6000);
-},300)
+},300);
 }
 
 
